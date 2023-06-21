@@ -46,30 +46,30 @@ main(){
 
 /*
 //Vize 2
-#define B PORTA.RB4 //Buton tanımlandı
+#define B PORTA.RB4                 //Buton tanÄ±mlandÄ±
 main(){
-   int i, j = 0, k = 0; //for döngüsü için i, sayının kaöta olduğunu belirlemek için j, 6s basıldıktan sonra butona hala basılıp basılmadığını kontrol etmek için k değişkenleri tanımlandı.
+   int i, j = 0, k = 0;             //for dÃ¶ngÃ¼sÃ¼ iÃ§in i, sayÄ±nÄ±n kaÃ¶ta olduÄŸunu belirlemek iÃ§in j, 6s basÄ±ldÄ±ktan sonra butona hala basÄ±lÄ±p basÄ±lmadÄ±ÄŸÄ±nÄ± kontrol etmek iÃ§in k deÄŸiÅŸkenleri tanÄ±mlandÄ±.
    int s[10] = {0b00000000, 0b00000001, 0b00000010, 0b00000011, 0b00000100, 0b00000101, 0b00000110, 0b00000111, 0b00001000, 0b00001001};
-   TRISA = 0b00110000; //Button giriş, 74LS48 entegresine giden uçlar çıkış seçildi. Diğerlerinin giriş veya çıkış seçilmesinin bir önemi yoktur.
-   PORTA = 0; //Önceki kodlardan kalma hareketleri engellemek için sıfırlama işlemi yapılıypr.
-   while(1){ //sonsuz döngüde enerji kesilene kadar programın devam etmesi sağlandı
-      if(B == 0){ //Butona basıldıysa
-         if(k == 0){j = j + 1;} //ve daha önce basılı tutlmamışsa j değişkenini bir arttır
+   TRISA = 0b00110000;              //Button giriÅŸ, 74LS48 entegresine giden uÃ§lar Ã§Ä±kÄ±ÅŸ seÃ§ildi. DiÄŸerlerinin giriÅŸ veya Ã§Ä±kÄ±ÅŸ seÃ§ilmesinin bir Ã¶nemi yoktur.
+   PORTA = 0;                       //Ã–nceki kodlardan kalma hareketleri engellemek iÃ§in sÄ±fÄ±rlama iÅŸlemi yapÄ±lÄ±ypr.
+   while(1){                        //sonsuz dÃ¶ngÃ¼de enerji kesilene kadar programÄ±n devam etmesi saÄŸlandÄ±
+      if(B == 0){                   //Butona basÄ±ldÄ±ysa
+         if(k == 0){j = j + 1;}     //ve daha Ã¶nce basÄ±lÄ± tutlmamÄ±ÅŸsa j deÄŸiÅŸkenini bir arttÄ±r
          for(i = 0; i < 6000; i++){ //6s kontrol et
             delay_ms(1);
-            if(B != 0){ //Butona basma işlemi yarıda kalırsa
-               break; //for döngüsünden çık
+            if(B != 0){             //Butona basma iÅŸlemi yarÄ±da kalÄ±rsa
+               break;               //for dÃ¶ngÃ¼sÃ¼nden Ã§Ä±k
             }
          }
-         if(i == 6000){ //for döngüsü sonuna kadar tamamlandıysa 6s basılmış demektir
-            PORTA = s[0]; //o zaman 7 segment LED 0 yazsın
-            j = 0; //sayaç görevi gören j değişkenimizi de sıfırla
-            k = 1; //6s'lik basılma işleminden sonra butona basma işlemi devam ediyor olabilir. o yüzden buton bırakılana kadar j'yi bir arttırma ve for döngüsüne girme
+         if(i == 6000){             //for dÃ¶ngÃ¼sÃ¼ sonuna kadar tamamlandÄ±ysa 6s basÄ±lmÄ±ÅŸ demektir
+            PORTA = s[0];           //o zaman 7 segment LED 0 yazsÄ±n
+            j = 0;                  //sayaÃ§ gÃ¶revi gÃ¶ren j deÄŸiÅŸkenimizi de sÄ±fÄ±rla
+            k = 1;                  //6s'lik basÄ±lma iÅŸleminden sonra butona basma iÅŸlemi devam ediyor olabilir. o yÃ¼zden buton bÄ±rakÄ±lana kadar j'yi bir arttÄ±rma ve for dÃ¶ngÃ¼sÃ¼ne girme
          }
-         else if(i < 6000){ //for döngüsü tamamlanmadan çıktıysa
-            if(j == 10){j = 0;} //ve eğer j = 10 ise j'yi sıfırla
-            PORTA = s[j]; //o an yazılması gereken sayıyı 7 segment diplayda göster
-            k = 0; //butona basılma işlemi son bulduğuna göre j'nin arışına izin ver
+         else if(i < 6000){         //for dÃ¶ngÃ¼sÃ¼ tamamlanmadan Ã§Ä±ktÄ±ysa
+            if(j == 10){j = 0;}     //ve eÄŸer j = 10 ise j'yi sÄ±fÄ±rla
+            PORTA = s[j];           //o an yazÄ±lmasÄ± gereken sayÄ±yÄ± 7 segment diplayda gÃ¶ster
+            k = 0;                  //butona basÄ±lma iÅŸlemi son bulduÄŸuna gÃ¶re j'nin arÄ±ÅŸÄ±na izin ver
          }
       }
    }
