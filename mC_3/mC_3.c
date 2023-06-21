@@ -1,4 +1,4 @@
-//LCD kullanýmý
+//LCD kullanÄ±mÄ±
 sbit LCD_RS at RB6_bit;
 sbit LCD_EN at RB7_bit;
 sbit LCD_D4 at RB2_bit;
