@@ -1,42 +1,42 @@
 
-//Mazeret sınavı 1. soru
+//Mazeret sÄ±navÄ± 1. soru
 #define Y PORTA.RA4
 #define A PORTB.RB0
 main(){
-   int s[10] = {0b00000000, 0b00000001, 0b00000010, 0b00000011, 0b00000100, 0b00000101, 0b00000110, 0b00000111, 0b00001000, 0b00001001}; //7 segment display
-   int i = 0, a = 27, j, g; //i = 0 çünkü 0'dan başlayıp arta arta gidecek, a = 27 çünkü 9'dan başlayığ azala azla gidecek
-   TRISA = 0b00110000; //A portunun giriş ve çıkışları belirlendi
-   TRISB = 0b00000001; //B portunun giriş ve çıkışları belirlendi
-   PORTA = 0; //İşimizi garantilemek için A portu sıfırlandı
-   PORTB = 0; //İşimizi garantilemek için B portu sıfırlandı
-   while(1){ //Program, enerji kesilene kadar program çalışsın diye while(1) döngüsünün içerisine yazılacak
-      while(Y == 0 && A == 1){ //iki butona da aynı anda basılması engelleniyor
-         if(Y == 0 && A == 1 && i < 18){ //Döngü içinde diğer butona basılmasını engellemek için burada da iki butona basılması engelleniyor ve sayıcının 9'dan yukarı çıkmaması için i değeri kısıtlanıyor
-            while(Y != 1){} //Butona basılınca oluşan dalgalanmanın neticesinde sanki birden fazla kes basmış gibi algılamasının önlenmesi için bir sonsuz döngü oluşturuluyor
-            i = i + 1; //RA4 Butonuna basma sayımızı hafızaya alıyor
+   int s[10] = {0b00000000, 0b00000001, 0b00000010, 0b00000011, 0b00000100, 0b00000101, 0b00000110, 0b00000111, 0b00001000, 0b00001001};
+   int i = 0, a = 27, j, g;                //i = 0 Ã§Ã¼nkÃ¼ 0'dan baÅŸlayÄ±p arta arta gidecek, a = 27 Ã§Ã¼nkÃ¼ 9'dan baÅŸlayÄ±ÄŸ azala azla gidecek
+   TRISA = 0b00110000;                     //A portunun giriÅŸ ve Ã§Ä±kÄ±ÅŸlarÄ± belirlendi
+   TRISB = 0b00000001;                     //B portunun giriÅŸ ve Ã§Ä±kÄ±ÅŸlarÄ± belirlendi
+   PORTA = 0;                              //Ä°ÅŸimizi garantilemek iÃ§in A portu sÄ±fÄ±rlandÄ±
+   PORTB = 0;                              //Ä°ÅŸimizi garantilemek iÃ§in B portu sÄ±fÄ±rlandÄ±
+   while(1){                               //Program, enerji kesilene kadar program Ã§alÄ±ÅŸsÄ±n diye while(1) dÃ¶ngÃ¼sÃ¼nÃ¼n iÃ§erisine yazÄ±lacak
+      while(Y == 0 && A == 1){             //iki butona da aynÄ± anda basÄ±lmasÄ± engelleniyor
+         if(Y == 0 && A == 1 && i < 18){   //DÃ¶ngÃ¼ iÃ§inde diÄŸer butona basÄ±lmasÄ±nÄ± engellemek iÃ§in burada da iki butona basÄ±lmasÄ± engelleniyor ve sayÄ±cÄ±nÄ±n 9'dan yukarÄ± Ã§Ä±kmamasÄ± iÃ§in i deÄŸeri kÄ±sÄ±tlanÄ±yor
+            while(Y != 1){}                //Butona basÄ±lÄ±nca oluÅŸan dalgalanmanÄ±n neticesinde sanki birden fazla kes basmÄ±ÅŸ gibi algÄ±lamasÄ±nÄ±n Ã¶nlenmesi iÃ§in bir sonsuz dÃ¶ngÃ¼ oluÅŸturuluyor
+            i = i + 1;                     //RA4 Butonuna basma sayÄ±mÄ±zÄ± hafÄ±zaya alÄ±yor
          }
-         if(i % 2 == 0){ //Eğer i 2'ye tam bölünüyorsa o zaman i'ye hiç basılmamış (0) veya iki kere basılmış diyebiliriz
-            g = i / 2; //Her 2i'de 1 sayı artacağı için g değişkenine gösterilmesi gereken sayı değeri atanıyor
-            PORTA = s[g]; //7 segment display ile hangi sayıda olunduğu gösteriliyor
-            a = 3 * i / 2; //artma ve azaltma işlemlerinin uyumlu olması için o anki i sayısının değerinin 3/2'si a değişkenine aktarılıyor
+         if(i % 2 == 0){                   //EÄŸer i 2'ye tam bÃ¶lÃ¼nÃ¼yorsa o zaman i'ye hiÃ§ basÄ±lmamÄ±ÅŸ (0) veya iki kere basÄ±lmÄ±ÅŸ diyebiliriz
+            g = i / 2;                     //Her 2i'de 1 sayÄ± artacaÄŸÄ± iÃ§in g deÄŸiÅŸkenine gÃ¶sterilmesi gereken sayÄ± deÄŸeri atanÄ±yor
+            PORTA = s[g];                  //7 segment display ile hangi sayÄ±da olunduÄŸu gÃ¶steriliyor
+            a = 3 * i / 2;                 //artma ve azaltma iÅŸlemlerinin uyumlu olmasÄ± iÃ§in o anki i sayÄ±sÄ±nÄ±n deÄŸerinin 3/2'si a deÄŸiÅŸkenine aktarÄ±lÄ±yor
          }
       }
-      while(A == 0 && Y == 1){ //Bu sefer de azaltma işlemi için her iki butona da basılmadığını sadece RB0'a basılıp basılmadığını kontrol ediyor
-         if(A == 0 && Y == 1 && i > 0){ //Döngü içerisinde her iki butona da basılmadığını kotrol dediyor ve azaltma işleminin 0'da son bulması için i değişkenimizi ve dolayısıyla da a değişkenimizi sınırlıyor
-            while(A != 1){} //Dalgalanmanın yüzünden butona bir defa basınca birden fazla kez basılmış gibi algılanmasını önlesin diye konmuştur
-            a = a - 1; //RB0 butonuna basma sayımızı hafızaya alıyor
+      while(A == 0 && Y == 1){             //Bu sefer de azaltma iÅŸlemi iÃ§in her iki butona da basÄ±lmadÄ±ÄŸÄ±nÄ± sadece RB0'a basÄ±lÄ±p basÄ±lmadÄ±ÄŸÄ±nÄ± kontrol ediyor
+         if(A == 0 && Y == 1 && i > 0){    //DÃ¶ngÃ¼ iÃ§erisinde her iki butona da basÄ±lmadÄ±ÄŸÄ±nÄ± kotrol dediyor ve azaltma iÅŸleminin 0'da son bulmasÄ± iÃ§in i deÄŸiÅŸkenimizi ve dolayÄ±sÄ±yla da a deÄŸiÅŸkenimizi sÄ±nÄ±rlÄ±yor
+            while(A != 1){}                //DalgalanmanÄ±n yÃ¼zÃ¼nden butona bir defa basÄ±nca birden fazla kez basÄ±lmÄ±ÅŸ gibi algÄ±lanmasÄ±nÄ± Ã¶nlesin diye konmuÅŸtur
+            a = a - 1;                     //RB0 butonuna basma sayÄ±mÄ±zÄ± hafÄ±zaya alÄ±yor
          }
-         if(a % 3 == 0){ //Eğer RB0 butonuna 3 defa basıldıysa
-            g = a / 3; //g değişkenine a'nın 1/3'ünü ata
-            PORTA = s[g]; //7 segment display ile azaltma neticesinde ekrana gelen sayıyı yazdır
-            i = 2 * a / 3; //attırma ve azaltma işlemlerinin uyum sağlaması için a'nın 2/3'ünü i değişkenine ata
+         if(a % 3 == 0){                   //EÄŸer RB0 butonuna 3 defa basÄ±ldÄ±ysa
+            g = a / 3;                     //g deÄŸiÅŸkenine a'nÄ±n 1/3'Ã¼nÃ¼ ata
+            PORTA = s[g];                  //7 segment display ile azaltma neticesinde ekrana gelen sayÄ±yÄ± yazdÄ±r
+            i = 2 * a / 3;                 //attÄ±rma ve azaltma iÅŸlemlerinin uyum saÄŸlamasÄ± iÃ§in a'nÄ±n 2/3'Ã¼nÃ¼ i deÄŸiÅŸkenine ata
          }
       }
    }
 }
 
 /*
-//Mazeret sınavı 3. soru
+//Mazeret sÄ±navÄ± 3. soru
 #define Y PORTB.RB0
 #define A PORTA.RA4
 main(){
@@ -48,7 +48,7 @@ main(){
    PORTB = 0;
    while(1){
       if(Y == 0 && A == 1 && k < 2){
-         while(Y != 1){} //Butona bir defa basılma işlemini algılanması için gerekli olan döngü
+         while(Y != 1){} //Butona bir defa basÄ±lma iÅŸlemini algÄ±lanmasÄ± iÃ§in gerekli olan dÃ¶ngÃ¼
          k = k + 1;
       }
       else if(A == 0 && Y == 1 && k > 0){
@@ -78,7 +78,7 @@ main(){
 }
 
 
-//Bir butona 1 kere basınca L1 yansın ... 7 kere basınca L7 yansın 7 kereden fazla basınca hepsi yansın
+//Bir butona 1 kere basÄ±nca L1 yansÄ±n ... 7 kere basÄ±nca L7 yansÄ±n 7 kereden fazla basÄ±nca hepsi yansÄ±n
 #define RA4 PORTA.RA4
 #define L1 PORTB.RB7
 #define L2 PORTB.RB6
@@ -121,7 +121,7 @@ main(){
 }
 
 
-//Bir butona 5 defa basınca LED'leri 1s yakıp sonra söndüren kod
+//Bir butona 5 defa basÄ±nca LED'leri 1s yakÄ±p sonra sÃ¶ndÃ¼ren kod
 #define RA4 PORTA.RA4
 main(){
    int i = 0;
@@ -143,7 +143,7 @@ main(){
 }
 
 
-//iki farklı butona 5s basılı tutulduğunda 5 defa yanıp sönen LED'ler
+//iki farklÄ± butona 5s basÄ±lÄ± tutulduÄŸunda 5 defa yanÄ±p sÃ¶nen LED'ler
 #define RB0 PORTB.RB0
 #define RA4 PORTA.RA4
 main(){
@@ -170,7 +170,7 @@ main(){
 }
 
 
-//Yukarı ve Aşağı sayyıcı kodu
+//YukarÄ± ve AÅŸaÄŸÄ± sayyÄ±cÄ± kodu
 #define Y9 PORTB.RB0
 #define A0 PORTA.RA4
 #define A PORTA.RA0
@@ -274,7 +274,7 @@ main(){
 }
 
 
-//Tuşlu muşlu karaşimşek kodu
+//TuÅŸlu muÅŸlu karaÅŸimÅŸek kodu
 #define L1 PORTB.RB7
 #define L2 PORTB.RB6
 #define L3 PORTB.RB5
