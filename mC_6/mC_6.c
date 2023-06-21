@@ -1,4 +1,4 @@
-//Keypad kütüphanesi kullanımı
+//Keypad kÃ¼tÃ¼phanesi kullanÄ±mÄ±
    char keypadPort at PORTB;
    Keypad_Init();
    int i, kp;
