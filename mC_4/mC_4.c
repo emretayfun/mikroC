@@ -1,11 +1,11 @@
 
-//RA0'a absýlýnca 75 derece saða, RA1'e basýlýnca 30 derece sola, RA2'ye basýlýnca 420 derece saða dönsün (ufak algo sorunlarý)
+//RA0'a absÄ±lÄ±nca 75 derece saÄŸa, RA1'e basÄ±lÄ±nca 30 derece sola, RA2'ye basÄ±lÄ±nca 420 derece saÄŸa dÃ¶nsÃ¼n (ufak algo sorunlarÄ±)
 #define B0 PORTA.RA0
 #define B1 PORTA.RA1
 #define B2 PORTA.RA2
 main(){
    int a = 0, i, ka = 0, ki = 0;
-   int t[4] = {0b01100000, 0b11000000, 0b10010000, 0b00110000};   //tam adým
+   int t[4] = {0b01100000, 0b11000000, 0b10010000, 0b00110000};   //tam adÃ½m
    const int d = 50;
    TRISA = 0b00100111;
    TRISB = 0;
@@ -57,24 +57,24 @@ main(){
 }
 
 /*
-//Step motoru saða ve sola döndürmek
+//Step motoru saÄŸa ve sola dÃ¶ndÃ¼rmek
 #define B0 PORTA.B0
 #define B1 PORTA.B1
 main(){
    int i = 0;
-   int y[8] = {0b00100000, 0b01100000, 0b01000000, 0b11000000, 0b10000000, 0b10010000, 0b00010000, 0b00110000};   //yarým adým
-   int t[4] = {0b01100000, 0b11000000, 0b10010000, 0b00110000};   //tam adým
+   int y[8] = {0b00100000, 0b01100000, 0b01000000, 0b11000000, 0b10000000, 0b10010000, 0b00010000, 0b00110000};   //yarÃ½m adÃ½m
+   int t[4] = {0b01100000, 0b11000000, 0b10010000, 0b00110000};   //tam adÃ½m
    const int d = 500;
    TRISA = 0b00100111;
    TRISB = 0;
    PORTA = 0;
    PORTB = 0;
    while(1){
-      //switch(i){   //yarým adým için
+      //switch(i){   //yarÃ½m adÃ½m iÃ§in
          //case 8: i = 0; break;
          //case -1: i = 7; break;
       //}
-      switch(i){   //tam adým için
+      switch(i){   //tam adÃ½m iÃ§in
          case 4: i = 0; break;
          case -1: i = 3; break;
       }
@@ -92,7 +92,7 @@ main(){
 }
 
 
-//Step (adým) motor sürmek
+//Step (adÄ±m) motor sÃ¼rmek
 #define A PORTB.B4
 #define B PORTB.B5
 #define C PORTB.B6
@@ -104,7 +104,7 @@ main(){
    PORTA = 0;
    PORTB = 0;
    while(1){
-      //2 Fazlý yarým adým
+      //2 FazlÃ½ yarÃ½m adÃ½m
       //B = 1;            //B
       //delay_ms(500);
       //C = 1;            //BC
@@ -122,7 +122,7 @@ main(){
       //B = 1;            //AB
       //delay_ms(500);
       //A = 0;            //B
-      //2 Fazlý tam adým
+      //2 FazlÃ½ tam adÃ½m
       B = 1;            //BC
       C = 1;
       delay_ms(500);
@@ -140,7 +140,7 @@ main(){
 }
 
 
-//L293D ile DC motor yönlendirme
+//L293D ile DC motor yÃ¶nlendirme
 #define S PORTA.B0
 #define L PORTA.B1
 #define R PORTA.B2
